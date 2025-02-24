@@ -32,9 +32,13 @@ def choose_shape():
                 else:
                     print(f"\"{chosen_shape}\" is not a valid choice. Try again\n")
                     time.sleep(1)
+            else:
+                print(f"\"{chosen_shape}\" is not a valid choice. Try again\n")
+                time.sleep(1)       
 
 def did_you_mean(user_shape,list_of_shapes):
     similarity = []
+    closest = None
     for shape in list_of_shapes:
         similar_points = 0
         original_shape = shape
@@ -55,17 +59,21 @@ def did_you_mean(user_shape,list_of_shapes):
                 if len_difference < first_len_difference:
                     first_len_difference = len_difference
                     closest = list_of_shapes[i]
+                    #maybe make a list of shapes that fit for if there are multiple like in the case of "elepce". then validate among those
+                    #shapes. if first letter is the same. of last letter is the same
     else:
         i = similarity.index(highest)
         return list_of_shapes[i]
-        
-    return closest
+    if closest != None:    
+        return closest
+    else: 
+        return user_shape
 
 def choose_dimensions():
     pass
 
 def main():
     shape = choose_shape()
-
+    # print(did_you_mean("elepce",["circle","square","rectangle","ellipse"]))
 if __name__ == "__main__":
     main()
