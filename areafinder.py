@@ -25,15 +25,18 @@ def choose_shape():
         else:
             shape_meant = did_you_mean(chosen_shape,valid_shapes)
             if shape_meant in valid_shapes:
-                ans = input (f"Did you mean {shape_meant}? [yes/no]")
+                ans = input (f"Did you mean {shape_meant}? [yes/no] ")
                 if ans.lower() == "yes":
                     print(f"You chose {shape_meant}!")
                     return shape_meant
+                elif ans.lower() == "no":                    
+                    print(f"\"{chosen_shape}\" is not a valid choice. Try again \n")
+                    time.sleep(1)
                 else:
-                    print(f"\"{chosen_shape}\" is not a valid choice. Try again\n")
+                    print(f"\"{ans}\" is not a valid answer. Try again ")
                     time.sleep(1)
             else:
-                print(f"\"{chosen_shape}\" is not a valid choice. Try again\n")
+                print(f"\"{chosen_shape}\" is not a valid choice. Try again \n")
                 time.sleep(1)       
 
 def did_you_mean(user_shape,list_of_shapes):
