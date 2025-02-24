@@ -1,5 +1,6 @@
 import pygame
 import time
+from area_through_formula import *
 
 def choose_shape():
     """
@@ -72,11 +73,25 @@ def did_you_mean(user_shape,list_of_shapes):
     else: 
         return user_shape
 
-def choose_dimensions():
-    pass
-
 def main():
+
     shape = choose_shape()
     # print(did_you_mean("elepce",["circle","square","rectangle","ellipse"]))
+
+    if shape == "circle":
+        s = Shape(radius1=5)
+        print(s.circle_area())
+    elif shape == "square":
+        square = Shape(width=5)
+        print(square.square_area())
+    elif shape == "rectangle":
+        rectangle = Shape(width=5,height=20)
+        print(rectangle.rectangle_area())
+    elif shape == "ellipse":
+        ellipse = Shape(radius1=3,radius2=5)
+        print(ellipse.ellipse_area())
+
+
+
 if __name__ == "__main__":
     main()
