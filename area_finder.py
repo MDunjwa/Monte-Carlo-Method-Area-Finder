@@ -2,24 +2,42 @@ import pygame
 import time
 from area_through_formula import *
 
-def choose_shape():
+def display_shapes(list_of_shapes):
+        """
+        Displays the shapes whose area the program is capable of finding using the Monte Carlo Method
+
+            Parameters:
+                list_of_shapes(list): A list of the shapes the user can choose from
+
+            Returns:
+                Nothing. Prints a bullet form list of the shapes to the terminal and a prompt to choose one
+
+        """
+    
+        print("\nChoose one of the following shapes by typing its name, and we will estimate its area using the Monte Carlo method!")
+        num = 1
+        for shape in list_of_shapes:
+            print(f"{num}. {shape}")
+            num += 1
+        print("\n")    
+
+def validate_shape(chosen_shape,accepted_shapes):
     """
-    This function allows the user to choose a shape from a list of shapes
+    Checks whether the shape the user chose is valid. Does a spellcheck for possible errors. Reprompts user if neither of the first
+    options work.
 
         Paremeters:
-            No parameters
+            chosen_shape (str): The shape entered by the user
+            accepted_shapes (list): A list of the valid shapes
 
         Returns:
             chosen_shape (str): The shape entered by the user
+
     """
 
     while True:
         valid_shapes = ["circle","square","rectangle","ellipse"]        
-        print("\nChoose one of the following shapes by typing its name, and we will estimate its area using the Monte Carlo method!")
-        for shape in valid_shapes:
-            print(f"• {shape}")
-        print("\n")
-        chosen_shape = input().lower()
+        # chosen_shape = input().lower()
         if chosen_shape in valid_shapes:
             print(f"You chose {chosen_shape}!")
             return chosen_shape
@@ -74,9 +92,13 @@ def did_you_mean(user_shape,list_of_shapes):
         return user_shape
 
 def main():
+    valid_shapes = ["circle","square","rectangle","ellipse"]
 
-    shape = choose_shape()
-    # print(did_you_mean("elepce",["circle","square","rectangle","ellipse"]))
+    display_shapes(valid_shapes) #1.show user their options
+    chosen_shape = input("I choose: ").lower()
+
+    shape = validate_shape(chosen_shape,valid_shapes)
+    
 
     if shape == "circle":
         s = Shape(radius1=5)
