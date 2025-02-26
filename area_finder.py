@@ -14,12 +14,11 @@ def display_shapes(list_of_shapes):
 
         """
     
-        print("\nChoose one of the following shapes by typing its corresponding number, and we will estimate its area using the Monte Carlo method!")
+        print("Choose one of the following shapes by typing its corresponding number, and we will estimate its area using the Monte Carlo method!")
         num = 1
         for shape in list_of_shapes:
             print(f"{num}. {shape}")
-            num += 1
-        print("\n")    
+            num += 1  
 
 def select_shape(num_entered,our_shapes):
     """
@@ -35,11 +34,15 @@ def select_shape(num_entered,our_shapes):
 
     return our_shapes[int(num_entered)-1]
      
+
+
 def main():
     valid_shapes = ["circle","square","rectangle","ellipse"]
     
     #print the shapes user can choose from
+    print("\n")
     display_shapes(valid_shapes) 
+    print("\n")
     
     #let user enter a number corresponding to a shape, but reprompt in cases when it isn't between 1 and 4
     shape_number = input("I choose: ").lower()
@@ -50,6 +53,8 @@ def main():
         else:
             shape_number = input("Invalid entry. Please enter a number between 1 and 4: ")
     print(f"You chose {shape}!")
+    
+    
 
     
 
