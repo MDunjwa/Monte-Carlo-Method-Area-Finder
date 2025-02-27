@@ -27,6 +27,15 @@ class TestAreaFinder(unittest.TestCase):
         self.assertEqual(select_shape(2,shapes_list),"square")
         self.assertEqual(select_shape(3,shapes_list),"rectangle")
         self.assertEqual(select_shape(4,shapes_list),"ellipse")
+
+
+    def test_Find_Actual_Area(self):
+        self.assertAlmostEqual(find_actual_area("circle",diameter=5),19.634954084936)
+        self.assertAlmostEqual(find_actual_area("square",diameter=5),25)
+        self.assertAlmostEqual(find_actual_area("rectangle",width=5,length=10),50)
+        self.assertAlmostEqual(find_actual_area("ellipse",radius1=13,radius2=6),245.04423)
+
         
+
 
  

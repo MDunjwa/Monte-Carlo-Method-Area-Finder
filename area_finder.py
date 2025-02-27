@@ -34,7 +34,24 @@ def select_shape(num_entered,our_shapes):
 
     return our_shapes[int(num_entered)-1]
      
+def find_actual_area(shape,width=0,length=0,diameter=0,radius1=0,radius2=0):
+    """
+    Finds the actual area of the chosen shape using the mathematical formula for it, instead of the Monte Carlo Method
 
+        Parameters:
+            shape (str): The shape whose actual area we are finding
+            width (int): The width if the shape is a square or rectangle
+            length (int): The length if the shape is arectangle
+            diameter (int): The diameter if the shape is a circle
+            radius1 (int): The semi-major axis if the shape is an ellipse
+            radius2 (int): The semi-minor axis if the shape is an ellipse
+
+        Returns:
+            actual_area (float): The actual area of the shape, calculated through its area formula
+
+    """
+    
+            
 
 def main():
     valid_shapes = ["circle","square","rectangle","ellipse"]
@@ -53,6 +70,8 @@ def main():
         else:
             shape_number = input("Invalid entry. Please enter a number between 1 and 4: ")
     print(f"You chose {shape}!")
+    
+    # get dimensions for particular shape from user
     
     
 
