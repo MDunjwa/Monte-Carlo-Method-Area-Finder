@@ -34,7 +34,7 @@ def select_shape(num_entered,our_shapes):
 
     return our_shapes[int(num_entered)-1]
      
-def find_actual_area(shape,width=0,length=0,diameter=0,radius1=0,radius2=0):
+def find_actual_area(shape,the_width=0,the_height=0,the_diameter=0,semi_major_axis=0,semi_minor_axis=0):
     """
     Finds the actual area of the chosen shape using the mathematical formula for it, instead of the Monte Carlo Method
 
@@ -50,33 +50,20 @@ def find_actual_area(shape,width=0,length=0,diameter=0,radius1=0,radius2=0):
             actual_area (float): The actual area of the shape, calculated through its area formula
 
     """
-    
-            
-
-def main():
-    valid_shapes = ["circle","square","rectangle","ellipse"]
-    
-    #print the shapes user can choose from
-    print("\n")
-    display_shapes(valid_shapes) 
-    print("\n")
-    
-    #let user enter a number corresponding to a shape, but reprompt in cases when it isn't between 1 and 4
-    shape_number = input("I choose: ").lower()
-    while True:
-        if 1 <= int(shape_number) <= 4:
-            shape = select_shape(shape_number,valid_shapes)
-            break
-        else:
-            shape_number = input("Invalid entry. Please enter a number between 1 and 4: ")
-    print(f"You chose {shape}!")
-    
-    # get dimensions for particular shape from user
-    
-    
-
-    
-
+    match shape:
+        case "circle":
+            circle = Shape(diameter=the_diameter)
+            return circle.circle_area()
+        case "square":
+              square = Shape(width=the_width)
+              return square.square_area()
+        case "rectangle":
+              rectangle = Shape(width=the_width,height=the_height)
+              return rectangle.rectangle_area()
+        case "ellipse":
+              ellipse = Shape(radius1=semi_major_axis,radius2=semi_minor_axis)
+              return ellipse.ellipse_area()
+        
     # if shape == "circle":
     #     s = Shape(radius1=5)
     #     print(s.circle_area())
@@ -88,7 +75,35 @@ def main():
     #     print(rectangle.rectangle_area())
     # elif shape == "ellipse":
     #     ellipse = Shape(radius1=3,radius2=5)
-    #     print(ellipse.ellipse_area())
+    #     print(ellipse.ellipse_area())    
+            
+
+def main():
+    pass
+    # valid_shapes = ["circle","square","rectangle","ellipse"]
+    
+    # #print the shapes user can choose from
+    # print("\n")
+    # display_shapes(valid_shapes) 
+    # print("\n")
+    
+    # #let user enter a number corresponding to a shape, but reprompt in cases when it isn't between 1 and 4
+    # shape_number = input("I choose: ").lower()
+    # while True:
+    #     if 1 <= int(shape_number) <= 4:
+    #         shape = select_shape(shape_number,valid_shapes)
+    #         break
+    #     else:
+    #         shape_number = input("Invalid entry. Please enter a number between 1 and 4: ")
+    # print(f"You chose {shape}!")
+
+    # get dimensions for particular shape from user
+    
+    
+
+    
+
+
 
 
 

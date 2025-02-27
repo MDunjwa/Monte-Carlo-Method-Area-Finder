@@ -30,10 +30,10 @@ class TestAreaFinder(unittest.TestCase):
 
 
     def test_Find_Actual_Area(self):
-        self.assertAlmostEqual(find_actual_area("circle",diameter=5),19.634954084936)
-        self.assertAlmostEqual(find_actual_area("square",diameter=5),25)
-        self.assertAlmostEqual(find_actual_area("rectangle",width=5,length=10),50)
-        self.assertAlmostEqual(find_actual_area("ellipse",radius1=13,radius2=6),245.04423)
+        self.assertAlmostEqual(find_actual_area("circle",the_diameter=5),19.634954084936)
+        self.assertAlmostEqual(find_actual_area("square",the_width=5),25)
+        self.assertAlmostEqual(find_actual_area("rectangle",the_width=5,the_height=10),50)
+        self.assertAlmostEqual(find_actual_area("ellipse",semi_major_axis=13,semi_minor_axis=6),245.04422698)
 
         
 
