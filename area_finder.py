@@ -63,42 +63,37 @@ def find_actual_area(shape,the_width=0,the_height=0,the_diameter=0,semi_major_ax
         case "ellipse":
               ellipse = Shape(radius1=semi_major_axis,radius2=semi_minor_axis)
               return ellipse.ellipse_area()
-        
-    # if shape == "circle":
-    #     s = Shape(radius1=5)
-    #     print(s.circle_area())
-    # elif shape == "square":
-    #     square = Shape(width=5)
-    #     print(square.square_area())
-    # elif shape == "rectangle":
-    #     rectangle = Shape(width=5,height=20)
-    #     print(rectangle.rectangle_area())
-    # elif shape == "ellipse":
-    #     ellipse = Shape(radius1=3,radius2=5)
-    #     print(ellipse.ellipse_area())    
-            
+  
+# get dimensions for particular shape from user and draw it
+def visualise():
+    BACKGROUND_SIZE = height,width = 1000,1000
+    background = pygame.display.set_mode(BACKGROUND_SIZE)  
+    pygame.display.set_caption("Monte Carlo Area Finder")
 
 def main():
-    pass
-    # valid_shapes = ["circle","square","rectangle","ellipse"]
+    valid_shapes = ["circle","square","rectangle","ellipse"]
     
-    # #print the shapes user can choose from
-    # print("\n")
-    # display_shapes(valid_shapes) 
-    # print("\n")
+    #print the shapes user can choose from
+    print("\n")
+    display_shapes(valid_shapes) 
+    print("\n")
     
-    # #let user enter a number corresponding to a shape, but reprompt in cases when it isn't between 1 and 4
-    # shape_number = input("I choose: ").lower()
-    # while True:
-    #     if 1 <= int(shape_number) <= 4:
-    #         shape = select_shape(shape_number,valid_shapes)
-    #         break
-    #     else:
-    #         shape_number = input("Invalid entry. Please enter a number between 1 and 4: ")
-    # print(f"You chose {shape}!")
+    #let user enter a number corresponding to a shape, but reprompt in cases when it isn't between 1 and 4
+    shape_number = input("I choose: ").lower()
+    while True:
+        try:
+            if 1 <= int(shape_number) <= 4:
+                shape = select_shape(shape_number,valid_shapes)
+                break
+            else:
+                shape_number = input("Invalid entry. Please enter a number between 1 and 4: ")
+        except ValueError:
+             shape_number = input("Invalid entry. Please enter a number between 1 and 4: ")
+             
+    print(f"You chose {shape}!\n")
+    visualise()
 
-    # get dimensions for particular shape from user
-    
+ 
     
 
     
