@@ -5,9 +5,8 @@ from unittest.mock import patch
 import sys
 from io import StringIO
 
-class TestAreaFinder(unittest.TestCase):
-    
-    
+class TestAreaFinder(unittest.TestCase):    
+
     def test_Display_Shapes(self):
         shapes_list = ["circle","square","rectangle","ellipse"]
         printed_text = StringIO()
@@ -27,7 +26,6 @@ class TestAreaFinder(unittest.TestCase):
         self.assertEqual(select_shape(2,shapes_list),"square")
         self.assertEqual(select_shape(3,shapes_list),"rectangle")
         self.assertEqual(select_shape(4,shapes_list),"ellipse")
-
 
     def test_Find_Actual_Area(self):
         self.assertAlmostEqual(find_actual_area("circle",the_diameter=5),19.634954084936)

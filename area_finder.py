@@ -66,9 +66,19 @@ def find_actual_area(shape,the_width=0,the_height=0,the_diameter=0,semi_major_ax
   
 # get dimensions for particular shape from user and draw it
 def visualise():
-    BACKGROUND_SIZE = height,width = 1000,1000
+
+    pygame.init()
+    BACKGROUND_SIZE = height,width = 700,700
     background = pygame.display.set_mode(BACKGROUND_SIZE)  
     pygame.display.set_caption("Monte Carlo Area Finder")
+
+    running = True
+    while running:
+         for event in pygame.event.get():
+              if event.type == pygame.QUIT:
+                   running = False
+    
+    pygame.quit()
 
 def main():
     valid_shapes = ["circle","square","rectangle","ellipse"]
